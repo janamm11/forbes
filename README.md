@@ -1,7 +1,65 @@
- # Problem Statement: Worldwide Billionaires Analysis
-1.1 Description:
-• The number of billionaires worldwide has grown dramatically over the past 20 years. By 2025, there are over 3,000 billionaires with a combined net worth of around $16 trillion. The United States leads in number of billionaires, followed by China and India. Most billionaires are still male, but the number of women is steadily increasing. The world’s richest woman is Francoise Bettencourt Meyers of France, whose grandfather founded L'Oréal. This reflects both the growing concentration of wealth and gradual changes in gender representation among the ultra-wealthy.
-• The wealth of billionaires is concentrated in a few industries. The technology sector is home to the most billionaires, followed by finance,retail, and real estate. The richest billionaires made their fortunes in a variety of ways, but the most common paths to wealth are through technology, finance, and manufacturing.
-• The number of billionaires has declined for two consecutive years, due to a combination of factors including the COVID-19 pandemic and the war in Ukraine.However, the overall wealth of billionaires remains high. The top 10 richest people in the world are worth a combined $593 billion, more than the GDP of most countries.
-• The concentration of wealth among billionaires has a number of implications for the global economy. It can lead to increased inequality, as the gap between the rich and the poor widens. It can also make it more difficult for governments to regulate the economy, as billionaires have the resources to lobby for their interests.
-• The analysis of worldwide billionaires is a complex and ever-changing field. New billionaires are created every year, and the fortunes of existing billionaires can fluctuate wildly. However, the overall trend is clear: the number of billionaires is increasing, and their wealth is becoming increasingly concentrated. This trend has important implications for the global economy, and it is one that will continue to be closely watched in the years to come.
+# Forbes Billionaires Data Analysis
+
+## Project Overview
+
+This project analyzes the **Forbes Billionaires** dataset using Python and pandas. The main goal is to explore wealth distribution, country-wise trends, age patterns, industries, and top billionaires through data cleaning and visualization.
+
+## Dataset Description
+
+- **File**: `forbes_richman.csv`
+- **Rows**: 2632 (after cleaning: 2509)
+- **Columns**: Rank, Name, Net Worth, Age, Country, Source, Industry
+
+**Key Features**:
+- Net Worth is stored as string (`$219 B`)
+- Contains European characters (loaded with `encoding="latin1"`)
+- Some rows contain missing and null values
+
+## Data Cleaning Steps
+
+- Renamed columns to lowercase with underscores
+- Converted `net_worth` from string (`$219 B`) to numeric using `pd.to_numeric()` and regex
+- Dropped completely empty rows (`dropna(how='all')`)
+- Handled missing values (especially in `age` column — 3.15% missing)
+
+## Analysis & Visualizations
+
+### Country Analysis
+- Number of billionaires by country (top countries: USA, China, India, Germany)
+- Total net worth by country
+- Top 5 billionaires from USA, India, and China with pie charts
+
+### Age Analysis
+- Age distribution of billionaires (Histogram with KDE)
+- Youngest billionaire: **Kevin David Lehmann** (19 years, Germany)
+- Oldest billionaire: **George Joseph** (100 years, USA)
+- Age group analysis using `pd.cut()`
+
+### Industry Analysis
+- Number of billionaires by industry
+- Total net worth by industry (Finance & Investments vs Technology)
+
+### Word Cloud
+- Word cloud generated from the `Source` column to show common sources of wealth
+
+### Individual Country Insights
+- Created a reusable function `country_pie_chart(country_name)` to show wealth distribution of top 5 billionaires + "Others"
+
+## Key Insights
+- United States has the highest number of billionaires and highest total wealth
+- Technology and Finance & Investments dominate billionaire industries
+- Significant difference between count of billionaires vs total wealth in countries
+- Youngest and oldest billionaires identified
+
+## Technologies Used
+
+- Python
+- Pandas
+- Matplotlib
+- Seaborn
+- WordCloud
+
+**Project Purpose**:  
+Practice of data cleaning, exploratory data analysis (EDA), visualization, and handling real-world messy data.
+
+Made for learning and revision.
